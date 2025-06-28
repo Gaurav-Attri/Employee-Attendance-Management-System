@@ -1,0 +1,9 @@
+# Node modules (both Frontend & Backend)
+node_modules/
+
+# Env files
+.env
+.env.*
+
+# OS/Editor
+.vscode/
