@@ -1,0 +1,24 @@
+{
+  "name": "employee-attendance-tracking-system-backend",
+  "version": "1.0.0",
+  "description": "Backend for Employee Attendance Tracking System",
+  "homepage": "https://github.com/Gaurav-Attri/Employee-Attendance-Management-System#readme",
+  "bugs": {
+    "url": "https://github.com/Gaurav-Attri/Employee-Attendance-Management-System/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gaurav-Attri/Employee-Attendance-Management-System.git"
+  },
+  "license": "ISC",
+  "author": "Gaurav Chaudhary",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "mongoose": "^8.16.1"
+  }
+}
