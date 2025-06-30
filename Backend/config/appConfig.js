@@ -5,8 +5,15 @@ const appConfig = {
     mongo_uri: process.env.MONGO_URI,
     jwt_secret: process.env.JWT_SECRET,
     admin_password: process.env.ADMIN_PASSWORD,
-    admin_email: process.env.ADMIN_EMAIL
+    admin_email: process.env.ADMIN_EMAIL,
+    smtp_host:process.env.SMTP_HOST,
+    smtp_port:process.env.SMTP_PORT,
+    smtp_secure:process.env.SMTP_SECURE,
+    smtp_user:process.env.SMTP_USER,
+    smtp_pass:process.env.SMTP_PASS,
+    smtp_from_email:process.env.SMTP_FROM_EMAIL
 }
+
 
 if(!appConfig.mongo_uri){
     throw new Error("MONGO_URI environment variable is required");
