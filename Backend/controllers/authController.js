@@ -8,7 +8,7 @@ const generateEmployeeId = async () => {
     return  lastEmployeeId ? lastEmployeeId.employeeId + 1 : 1000; // employeeId starts with 1000 
 };
 
-registerEmployee = async (req, res) => {
+const registerEmployee = async (req, res) => {
     try{
         const {firstName, lastName, email, password} = req.body;
         if(!firstName || !lastName || !email || !password){
@@ -51,7 +51,7 @@ registerEmployee = async (req, res) => {
     }
 }
 
-loginUser = async (req, res) => {
+const loginUser = async (req, res) => {
     try{
         const {email, password} = req.body;
         if(!email || !password){
