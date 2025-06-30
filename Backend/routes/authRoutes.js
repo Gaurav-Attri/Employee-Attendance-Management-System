@@ -5,5 +5,6 @@ const verifyToken = require('../middleware/verifyToken');
 const isAdmin = require('../middleware/isAdmin');
 
 router.post('/register', verifyToken, isAdmin, authController.registerEmployee);
+router.post('/login', authController.loginUser);
 
 module.exports = router;
