@@ -11,7 +11,11 @@ const appConfig = {
     smtp_secure:process.env.SMTP_SECURE,
     smtp_user:process.env.SMTP_USER,
     smtp_pass:process.env.SMTP_PASS,
-    smtp_from_email:process.env.SMTP_FROM_EMAIL
+    smtp_from_email:process.env.SMTP_FROM_EMAIL,
+    office_lat: parseFloat(process.env.OFFICE_LAT),
+    office_lon: parseFloat(process.env.OFFIC_LON),
+    allowed_distance_meters: parseInt(process.env.ALLOWED_DISTANCE_METERS)
+
 }
 
 
