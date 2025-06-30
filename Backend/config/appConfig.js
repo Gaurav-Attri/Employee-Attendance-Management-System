@@ -3,6 +3,7 @@ require('dotenv').config();
 const appConfig = {
     port: process.env.PORT || 5000,
     mongo_uri: process.env.MONGO_URI,
+    jwt_secret: process.env.JWT_SECRET,
     admin_password: process.env.ADMIN_PASSWORD,
     admin_email: process.env.ADMIN_EMAIL
 }
