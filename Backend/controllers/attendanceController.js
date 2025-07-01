@@ -85,6 +85,11 @@ const verifyClockInOTP = async (req, res) => {
         }
 
         const now = new Date();
+
+        const isLate = now.getHours() > config.officeStartHour || 
+               (now.getHours() === config.officeStartHour && now.getMinutes() > config.officeStartMinute);
+
+
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
@@ -103,6 +108,7 @@ const verifyClockInOTP = async (req, res) => {
             clockInTime: now,
             date: today,
             status: "present",
+            isLate,
             location: {
                 clockIn: {
                     latitude,

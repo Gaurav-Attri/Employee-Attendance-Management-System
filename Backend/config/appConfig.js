@@ -1,4 +1,5 @@
 require('dotenv').config();
+const [officeStartHour, officeStartMinute] = process.env.OFFICE_START_TIME.split(":").map(Number);
 
 const appConfig = {
     port: process.env.PORT || 5000,
@@ -14,7 +15,9 @@ const appConfig = {
     smtp_from_email:process.env.SMTP_FROM_EMAIL,
     office_lat: parseFloat(process.env.OFFICE_LAT),
     office_lon: parseFloat(process.env.OFFICE_LON),
-    allowed_distance_meters: parseInt(process.env.ALLOWED_DISTANCE_METERS)
+    allowed_distance_meters: parseInt(process.env.ALLOWED_DISTANCE_METERS),
+    officeStartHour,
+    officeStartMinute
 
 }
 
