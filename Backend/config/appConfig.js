@@ -13,7 +13,7 @@ const appConfig = {
     smtp_pass:process.env.SMTP_PASS,
     smtp_from_email:process.env.SMTP_FROM_EMAIL,
     office_lat: parseFloat(process.env.OFFICE_LAT),
-    office_lon: parseFloat(process.env.OFFIC_LON),
+    office_lon: parseFloat(process.env.OFFICE_LON),
     allowed_distance_meters: parseInt(process.env.ALLOWED_DISTANCE_METERS)
 
 }
