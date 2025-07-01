@@ -102,8 +102,10 @@ const verifyClockInOTP = async (req, res) => {
             date: today,
             status: "present",
             location: {
-                latitude,
-                longitude
+                clockIn: {
+                    latitude,
+                    longitude
+                }
             }
         });
 

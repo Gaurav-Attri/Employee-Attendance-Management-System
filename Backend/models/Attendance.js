@@ -30,19 +30,34 @@ const attendanceSchema = new mongoose.Schema({
         default: "present"
     },
     location: {
-        latitude: { 
-            type: Number,
-            required: true,
-            min: -90,
-            max: 90
+        clockIn: {
+            latitude: { 
+                type: Number,
+                required: true,
+                min: -90,
+                max: 90
+            },
+            longitude: {
+                type: Number,
+                required: true,
+                min: -180,
+                max: 180
+            }
         },
-        longitude: {
-            type: Number,
-            required: true,
-            min: -180,
-            max: 180
+        clockOut: {
+            latitude: { 
+                type: Number,
+                min: -90,
+                max: 90
+            },
+            longitude: {
+                type: Number,
+                min: -180,
+                max: 180
+            }
         }
     }
+
 }, {timestamps: true});
 
 module.exports = mongoose.model("Attendance", attendanceSchema);
