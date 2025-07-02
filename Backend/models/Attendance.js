@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const attendanceSchema = new mongoose.Schema({
     employeeId: {
-        type: Number,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Employee',
         required: true
     },
     clockInTime: {

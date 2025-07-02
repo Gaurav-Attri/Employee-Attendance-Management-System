@@ -15,7 +15,7 @@ const OTP_EXPIRY_MS = 3*60*1000;
 const initiateClockInOTP = async (req, res) => {
     try{
         const {latitude, longitude} = req.body;
-        const {employeeId, email, firstName} = req.user;
+        const {employeeId, email, firstName, id} = req.user;
 
         if(!latitude || !longitude){
             return res.status(400).json({message: "Location data is required"});
@@ -30,7 +30,7 @@ const initiateClockInOTP = async (req, res) => {
         today.setHours(0, 0, 0, 0);
 
         const alreadyClockedIn = await Attendance.findOne({
-            employeeId,
+            employeeId: id,
             date: {$gte : today}
         });
 
@@ -59,7 +59,7 @@ const initiateClockInOTP = async (req, res) => {
 
 const verifyClockInOTP = async (req, res) => {
     try{
-        const {employeeId} = req.user;
+        const {id, employeeId} = req.user;
         const {otp: inputOtp, latitude, longitude} = req.body;
 
         if(!inputOtp){
@@ -94,7 +94,7 @@ const verifyClockInOTP = async (req, res) => {
         today.setHours(0, 0, 0, 0);
 
         const existingAttendance = await Attendance.findOne({
-            employeeId,
+            employeeId: id,
             date: { $gte: today }
         });
 
@@ -104,7 +104,7 @@ const verifyClockInOTP = async (req, res) => {
         }
 
         const attendanceRecord = new Attendance({
-            employeeId,
+            employeeId: id,
             clockInTime: now,
             date: today,
             status: "present",
@@ -131,7 +131,7 @@ const verifyClockInOTP = async (req, res) => {
 const initiateClockOutOTP = async (req, res) => {
     try{
         const {latitude, longitude} = req.body;
-        const {employeeId, email, firstName} = req.user;
+        const {id, employeeId, email, firstName} = req.user;
 
         if(!latitude || !longitude){
             return res.status(400).json({message: "Location data is required"});
@@ -146,7 +146,7 @@ const initiateClockOutOTP = async (req, res) => {
         today.setHours(0, 0, 0, 0);
 
         const attendanceRecord = await Attendance.findOne({
-            employeeId,
+            employeeId: id,
             date: {$gte: today}
         });
 
@@ -181,7 +181,7 @@ const initiateClockOutOTP = async (req, res) => {
 
 const verifyClockOutOTP = async (req, res) => {
     try{
-        const {employeeId} = req.user;
+        const {id, employeeId} = req.user;
         const {otp: inputOtp} = req.body;
 
         if(!inputOtp){
@@ -207,7 +207,7 @@ const verifyClockOutOTP = async (req, res) => {
         today.setHours(0, 0, 0, 0);
 
         const attendanceRecord = await Attendance.findOne({
-            employeeId,
+            employeeId: id,
             date: { $gte: today }
         });
 
