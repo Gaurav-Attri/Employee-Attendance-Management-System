@@ -7,6 +7,7 @@ import RegisterEmployee from './pages/admin/RegisterEmployee';
 import EmployeeDashboard from "./pages/employee/Dashboard";
 import ClockIn from "./pages/employee/ClockIn";
 import ClockOut from "./pages/employee/ClockOut";
+import AdminLayout from "./layouts/AdminLayout";
 
 function App(){
   return (
@@ -17,10 +18,12 @@ function App(){
         <Route path='/login' element={<Login />} />
 
         {/* Admin Routes */}
-        <Route path='/admin/dashboard' element={<AdminDashboard />} />
-        <Route path="/admin/register" element={<RegisterEmployee />} />
-        <Route path="/admin/employees" element={<EmployeeList />} />
-        <Route path="/admin/attendance" element={<AttendanceRecords />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="register" element={<RegisterEmployee />} />
+          <Route path="employees" element={<EmployeeList />} />
+          <Route path="attendance" element={<AttendanceRecords />} />
+        </Route>
 
         {/* Employee Routes */}
         <Route path='/employee/dashboard' element={<EmployeeDashboard />} />
